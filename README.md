@@ -4,6 +4,7 @@
 ### Navigation3 for navigation betweeen Screen
 ### Jetpack Compose for UI 
 ### Flow and Coroutines for state and cocurrency
+### Due to time crunch unable to add search and testing code
 
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
