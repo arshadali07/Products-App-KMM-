@@ -1,3 +1,10 @@
+### Products App Build with Kotlin Multiplatform with Shared Compose UI for Android and iOS
+### For building this app used
+### Ktor Client For Networking
+### Navigation3 for navigation betweeen Screen
+### Jetpack Compose for UI 
+### Flow and Coroutines for state and cocurrency
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
