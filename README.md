@@ -1,9 +1,3 @@
-<img src="https://github.com/user-attachments/assets/4cca6c79-5712-44f2-991b-94d8f7ae7a03" width="300"/>
-<img src="https://github.com/user-attachments/assets/ed39307c-bf0e-4fca-9256-1bdf9f32d889" width="300"/>
-<img src="https://github.com/user-attachments/assets/e8e3e0df-c3cf-410f-b058-3ca4058431fd" width="300"/>
-<img src="https://github.com/user-attachments/assets/d0f894bc-8fbb-4d02-b37a-379b47d89b94" width="300"/>
-<img src="https://github.com/user-attachments/assets/6fb59136-e86f-44be-b692-8b4b06565d86" width="300"/>
-<img src="https://github.com/user-attachments/assets/0a77eba8-327b-4d0a-a960-cf55fcb1c6e1" width="300"/>
 ### Products App Build with Kotlin Multiplatform with Shared Compose UI for Android and iOS
 ### For building this app used
 ### Ktor Client For Networking
@@ -11,6 +5,23 @@
 ### Jetpack Compose for UI 
 ### Flow and Coroutines for state and cocurrency
 ### Due to time crunch unable to add search and testing code
+
+### Android Screenshots
+<img src="https://github.com/user-attachments/assets/4c14f4d0-77f4-4788-afd4-fbb73867fb51" width="300"/>
+<img src="https://github.com/user-attachments/assets/9ab05ee2-8854-41af-9655-7426ca48ab65" width="300"/>
+<img src="https://github.com/user-attachments/assets/5d268ffc-b142-4a36-9d34-6e7e6b44b8be" width="300"/>
+<img src="https://github.com/user-attachments/assets/274ce6ed-9d4a-49ec-bbee-539b848b4b33" width="300"/>
+<img src="https://github.com/user-attachments/assets/a028a755-53e9-4aa1-9261-fac43b9c1391" width="300"/>
+<img src="https://github.com/user-attachments/assets/4b140b89-bb08-4266-b3b4-6dc05f7b6775" width="300"/>
+
+### iOS Screenshots
+<img src="https://github.com/user-attachments/assets/4cca6c79-5712-44f2-991b-94d8f7ae7a03" width="300"/>
+<img src="https://github.com/user-attachments/assets/ed39307c-bf0e-4fca-9256-1bdf9f32d889" width="300"/>
+<img src="https://github.com/user-attachments/assets/e8e3e0df-c3cf-410f-b058-3ca4058431fd" width="300"/>
+<img src="https://github.com/user-attachments/assets/d0f894bc-8fbb-4d02-b37a-379b47d89b94" width="300"/>
+<img src="https://github.com/user-attachments/assets/6fb59136-e86f-44be-b692-8b4b06565d86" width="300"/>
+<img src="https://github.com/user-attachments/assets/0a77eba8-327b-4d0a-a960-cf55fcb1c6e1" width="300"/>
+
 
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
