@@ -42,6 +42,7 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.compose.material.icons.extended)
 
             //Coil Image Loading
             implementation(libs.coil.compose)
