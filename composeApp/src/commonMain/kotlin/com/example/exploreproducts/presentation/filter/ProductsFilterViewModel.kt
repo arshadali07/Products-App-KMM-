@@ -1,39 +1,35 @@
-package com.example.exploreproducts.presentation.home
+package com.example.exploreproducts.presentation.filter
 
 import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import com.example.exploreproducts.data.KtorProductsService
 import com.example.exploreproducts.data.RemoteProductsRepository
 import com.example.exploreproducts.domain.ProductsRepository
-import com.example.exploreproducts.domain.model.response.Product
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-class ProductsHomeViewModel(
+@OptIn(FlowPreview::class)
+class ProductsFilterViewModel(
+    private val category: String?,
     private val productsRepository: ProductsRepository = RemoteProductsRepository(productsService = KtorProductsService())
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(ProductsHomeUiState())
+    private val _uiState = MutableStateFlow(ProductsFilterUiState())
     val uiState = _uiState
-        .onStart { getProductCategories() }
+        .onStart { getProductsByCategory() }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = _uiState.value
         )
 
-    val paginatedProducts: Flow<PagingData<Product>> = productsRepository
-        .getPaginatedProducts()
-        .cachedIn(viewModelScope)
-
-    fun onAction(action: ProductsHomeAction) {
+    fun onAction(action: ProductsFilterAction) {
         when (action) {
-            is ProductsHomeAction.OnBackClickAction -> navigateBack()
+            is ProductsFilterAction.OnBackClickAction -> navigateBack()
         }
     }
 
@@ -41,11 +37,11 @@ class ProductsHomeViewModel(
 
     }
 
-    private fun getProductCategories() {
+    private fun getProductsByCategory() {
         viewModelScope.launch(Dispatchers.IO) {
-            productsRepository.getProductsCategory()
+            productsRepository.getProductsByCategory(category)
                 .onSuccess { response ->
-                    _uiState.update { it.copy(categories = response) }
+                    _uiState.update { it.copy(filteredProducts = response.products) }
                 }
                 .onFailure {
 

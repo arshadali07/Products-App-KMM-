@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import com.example.exploreproducts.domain.ProductsRepository
 import com.example.exploreproducts.domain.ProductsService
 import com.example.exploreproducts.domain.model.response.Product
+import com.example.exploreproducts.domain.model.response.ProductsMain
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
@@ -28,5 +29,17 @@ class RemoteProductsRepository(
 
     override suspend fun getProductDetail(productId: String?): Result<Product> {
         return productsService.getProductDetail(productId)
+    }
+
+    override suspend fun getSearchedProducts(query: String?): Result<ProductsMain> {
+        return productsService.getSearchedProducts(query)
+    }
+
+    override suspend fun getProductsCategory(): Result<List<String>> {
+        return productsService.getProductsCategory()
+    }
+
+    override suspend fun getProductsByCategory(productCategory: String?): Result<ProductsMain> {
+        return productsService.getProductsByCategory(productCategory)
     }
 }

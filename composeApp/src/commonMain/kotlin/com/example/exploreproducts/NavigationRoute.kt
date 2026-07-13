@@ -11,4 +11,10 @@ sealed interface NavigationRoute : NavKey {
 
     @Serializable
     data class ProductDetails(val productId: Int?) : NavigationRoute
+
+    @Serializable
+    data object ProductsSearch : NavigationRoute
+
+    @Serializable
+    data class ProductsByCategory(val category: String?) : NavigationRoute
 }

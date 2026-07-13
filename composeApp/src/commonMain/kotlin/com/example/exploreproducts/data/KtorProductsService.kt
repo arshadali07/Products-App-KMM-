@@ -57,4 +57,49 @@ class KtorProductsService(
             }
         }
     }
+
+    override suspend fun getSearchedProducts(query: String?): Result<ProductsMain> {
+        return safeCall {
+            val response = client.get {
+                url(constructRoute("/products/search?q=$query"))
+            }
+            val responseResult = responseToResult<ProductsMainDto>(response)
+            if (responseResult.isSuccess) {
+                val responseData = responseResult.getOrNull() ?: throw EmptyResultException("Empty Result")
+                responseData.toDomain()
+            } else {
+                throw (responseResult.exceptionOrNull() ?: Exception("Different Exception"))
+            }
+        }
+    }
+
+    override suspend fun getProductsCategory(): Result<List<String>> {
+        return safeCall {
+            val response = client.get {
+                url(constructRoute("/products/category-list"))
+            }
+            val responseResult = responseToResult<List<String>>(response)
+            if (responseResult.isSuccess) {
+                val responseData = responseResult.getOrNull() ?: throw EmptyResultException("Empty Result")
+                responseData
+            } else {
+                throw (responseResult.exceptionOrNull() ?: Exception("Different Exception"))
+            }
+        }
+    }
+
+    override suspend fun getProductsByCategory(productCategory: String?): Result<ProductsMain> {
+        return safeCall {
+            val response = client.get {
+                url(constructRoute("/products/category/$productCategory"))
+            }
+            val responseResult = responseToResult<ProductsMainDto>(response)
+            if (responseResult.isSuccess) {
+                val responseData = responseResult.getOrNull() ?: throw EmptyResultException("Empty Result")
+                responseData.toDomain()
+            } else {
+                throw (responseResult.exceptionOrNull() ?: Exception("Different Exception"))
+            }
+        }
+    }
 }
